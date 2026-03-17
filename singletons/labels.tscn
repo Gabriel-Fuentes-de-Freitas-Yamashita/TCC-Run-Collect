@@ -1,0 +1,119 @@
+[gd_scene load_steps=14 format=3 uid="uid://bhlvxjp8oeesk"]
+
+[ext_resource type="Script" uid="uid://bkgiasnbdids7" path="res://scripts/labels.gd" id="1_fm73l"]
+[ext_resource type="Texture2D" uid="uid://d0pgq5f72vcor" path="res://sprites/moedas/moeda1.png" id="2_qtm1l"]
+[ext_resource type="Texture2D" uid="uid://txgnab7amwgm" path="res://sprites/moedas/moeda2.png" id="3_6akyo"]
+[ext_resource type="Texture2D" uid="uid://c6mhr6w06ikde" path="res://sprites/moedas/moeda3.png" id="4_7ypqd"]
+[ext_resource type="Texture2D" uid="uid://cqdsm30sdlndn" path="res://sprites/moedas/moeda4.png" id="5_2frf1"]
+[ext_resource type="Texture2D" uid="uid://b2jaba4h0hjm" path="res://sprites/moedas/moeda5.png" id="6_lvges"]
+[ext_resource type="Texture2D" uid="uid://dvob8lwl6ubew" path="res://sprites/gemas/gema1.png" id="7_17rgi"]
+[ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="7_xs3qq"]
+[ext_resource type="Texture2D" uid="uid://b2mwpsxibcs42" path="res://sprites/gemas/gema2.png" id="8_ec8mj"]
+[ext_resource type="Texture2D" uid="uid://cc7wyyg7opjgn" path="res://sprites/gemas/gema3.png" id="9_fu5nx"]
+[ext_resource type="Texture2D" uid="uid://6t8smabd8kx5" path="res://sprites/gemas/gema4.png" id="10_exacn"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_lw8at"]
+frames = 5
+speed_scale = 3.0
+frame_0/texture = ExtResource("2_qtm1l")
+frame_1/texture = ExtResource("3_6akyo")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_7ypqd")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_2frf1")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("6_lvges")
+frame_4/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_wvttt"]
+frames = 4
+speed_scale = 2.0
+frame_0/texture = ExtResource("7_17rgi")
+frame_1/texture = ExtResource("8_ec8mj")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("9_fu5nx")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("10_exacn")
+frame_3/duration = 1.0
+
+[node name="Labels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fm73l")
+
+[node name="container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="coins_container" type="HBoxContainer" parent="container"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="coins_icon" type="TextureRect" parent="container/coins_container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_lw8at")
+
+[node name="coins_counter" type="Label" parent="container/coins_container"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("7_xs3qq")
+text = "000"
+vertical_alignment = 1
+
+[node name="timer_container" type="HBoxContainer" parent="container"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="timer_label" type="Label" parent="container/timer_container"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("7_xs3qq")
+theme_override_font_sizes/font_size = 20
+text = "Tempo:"
+vertical_alignment = 1
+
+[node name="timer_counter" type="Label" parent="container/timer_container"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("7_xs3qq")
+theme_override_font_sizes/font_size = 20
+text = "00:00"
+vertical_alignment = 1
+
+[node name="gems_container" type="HBoxContainer" parent="container"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="gems_counter" type="Label" parent="container/gems_container"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("7_xs3qq")
+text = "0/3"
+vertical_alignment = 1
+
+[node name="gems_icon" type="TextureRect" parent="container/gems_container"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_wvttt")

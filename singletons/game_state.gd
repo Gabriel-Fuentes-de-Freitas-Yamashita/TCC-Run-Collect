@@ -1,0 +1,69 @@
+extends Node
+
+signal door_unlocked(id: String)
+
+# dicionário para armazenar o estado das portas
+# chave: id da porta, valor: estado da porta (true = aberta)
+# Valor: Estado da porta (bool, true para aberta)
+var door_states = {}
+# portas trancadas
+var door_locked = ["fase_central_1_bloqueada_1","fase_central_1_bloqueada_2","fase_central_1_bloqueada_3",
+				   "fase_central_2_bloqueada_1","fase_central_2_bloqueada_2","fase_central_3_bloqueada_1",
+				   "phase_1", "phase_2", "phase_3", "phase_4"]
+# portas concluídas (fases)
+var door_finished = ["fase_central_2_finished_1", "fase_central_3_finished_1", "fase_central_3_finished_2",
+					 "fase_central_4_finished_1", "fase_central_4_finished_2", "fase_central_4_finished_3",
+					 "fase_central_5_finished_1", "fase_central_5_finished_2", "fase_central_5_finished_3",
+					 "fase_central_5_finished_4"]
+var has_double_jump = false
+var has_wall_jump = false
+var fase_central_atual = 0
+var total_time: float = 0.0
+var active_timer: bool = false
+var coins := 0
+var gems := 0
+
+func _process(delta: float) -> void:
+	if active_timer:
+		total_time += delta # Soma a fração de segundo ao tempo total
+		
+func get_time() -> String:
+	@warning_ignore("integer_division")
+	var minutes: int = int(total_time) / 60
+	var seconds: int = int(total_time) % 60
+	var milliseconds: int = int((total_time - int(total_time)) * 100)
+	return "%02d:%02d:%02d" % [minutes, seconds, milliseconds]
+
+# função para registrar que uma porta foi aberta
+func open_door(door_id: String):
+	door_states[door_id] = true
+
+# função para fechar a porta
+func close_door(door_id: String):
+	door_states[door_id] = false
+
+# função para verificar se porta deve estar aberta
+func is_door_open(door_id: String) -> bool:
+	# retorna true se a chave existir e o valor for true. Senão, retorna false.
+	return door_states.get(door_id, false)
+
+# função para verificar se porta está trancada
+func is_door_locked(door_id: String) -> bool:
+	if door_id in door_locked:
+		return true
+	return false
+
+# função para verificar se porta está concluída
+func is_door_finished(door_id: String) -> bool:
+	if door_id in door_finished:
+		return true
+	return false
+	
+func lock_door(door_id: String):
+	if not door_id in door_locked:
+		door_locked.append(door_id)
+
+func unlock_door(door_id: String):
+	if door_id in door_locked:
+		door_locked.erase(door_id)
+		door_unlocked.emit(door_id)

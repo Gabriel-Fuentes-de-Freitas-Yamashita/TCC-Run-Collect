@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs7yapt6x2ymw"]
+
+[ext_resource type="AudioStream" uid="uid://bg1u7eg176why" path="res://sounds/WhatsApp Audio 2026-03-17 at 13.59.08.mp3" id="1_obg3y"]
+
+[node name="GlobalMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_obg3y")
+volume_db = -20.0
+autoplay = true

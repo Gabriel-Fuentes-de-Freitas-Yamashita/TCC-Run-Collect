@@ -1,0 +1,110 @@
+[gd_scene load_steps=10 format=3 uid="uid://ciffy3xg6wnu7"]
+
+[ext_resource type="Script" uid="uid://bq14ybnv8qhu8" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="Shader" uid="uid://creejjeo642tp" path="res://scripts/menu.gdshader" id="2_con2f"]
+[ext_resource type="Texture2D" uid="uid://l8uib3aprjk0" path="res://sprites/background/Central.png" id="3_mhnvy"]
+[ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="4_mhnvy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_con2f"]
+shader = ExtResource("2_con2f")
+shader_parameter/speed = Vector2(0.01, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
+bg_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3eks"]
+bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v86rl"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_yqeox")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_con2f")
+offset_right = 600.0
+offset_bottom = 352.0
+texture = ExtResource("3_mhnvy")
+stretch_mode = 1
+
+[node name="ButtonManager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="ButtonManager"]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 143.0
+offset_right = 375.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("4_mhnvy")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ytvr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g3eks")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v86rl")
+text = "Jogar"
+
+[node name="Quit" type="Button" parent="ButtonManager"]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 233.0
+offset_right = 375.0
+offset_bottom = 293.0
+theme_override_fonts/font = ExtResource("4_mhnvy")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ytvr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g3eks")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v86rl")
+text = "Sair"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 137.0
+offset_top = 40.0
+offset_right = 462.0
+offset_bottom = 108.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_mhnvy")
+theme_override_font_sizes/font_size = 60
+text = "Run & Collect"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]
