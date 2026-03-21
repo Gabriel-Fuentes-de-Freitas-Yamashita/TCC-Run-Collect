@@ -48,9 +48,9 @@ func montar_placar():
 	var meu_tempo = GameState.get_time()
 
 	var leaderboard = [
-		{"nome": "M4TH", "score": "08580", "tempo": "02:31:13"},
-		{"nome": "FUFU", "score": "08250", "tempo": "02:40:87"},
-		{"nome": "AK1R", "score": "08410", "tempo": "02:37:54"},
+		{"nome": "M4TH", "score": "09830", "tempo": "01:51:59"},
+		{"nome": "FUFU", "score": "09660", "tempo": "01:57:01"},
+		{"nome": "AK1R", "score": "09870", "tempo": "01:54:99"},
 		{"nome": "VOCÊ", "score": str(meu_score).pad_zeros(5), "tempo": meu_tempo}
 	]
 	

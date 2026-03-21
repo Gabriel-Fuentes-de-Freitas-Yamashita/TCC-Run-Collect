@@ -25,7 +25,7 @@ size = Vector2(259, 20)
 script = ExtResource("1_wr8iv")
 
 [node name="Camera" parent="." instance=ExtResource("2_4kmhl")]
-limit_right = 1454
+limit_right = 1487
 
 [node name="Spaceship" type="TileMapLayer" parent="."]
 z_index = -15

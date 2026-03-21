@@ -6,7 +6,8 @@ enum PlayerState {
 	jump,
 	fall,
 	wall,
-	dead
+	dead,
+	locked
 }
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -34,6 +35,10 @@ var direction = 0
 var status: PlayerState
 var spawn_position: Vector2
 
+var wall_jump_timer: float = 0.0
+const WALL_JUMP_TIME = 0.15
+var last_wall_direction = 0
+
 func _ready() -> void:
 	go_to_idle_state()
 	if GameState.has_double_jump:
@@ -41,8 +46,15 @@ func _ready() -> void:
 	if GameState.has_wall_jump:
 		has_wall_jump = true
 	spawn_position = global_position
+
 # verificar estado do player
 func _physics_process(delta: float) -> void:
+	if wall_jump_timer > 0:
+		wall_jump_timer -= delta
+	
+	if status == PlayerState.locked:
+		apply_gravity(delta)
+		return
 	
 	if not pode_mover:
 		velocity.x = 0
@@ -99,7 +111,12 @@ func go_to_dead_state():
 	velocity.y = 50
 	velocity.x = 0
 	reload_timer.start()
-	
+
+func go_to_locked_state(animation_name: String):
+	status = PlayerState.locked
+	velocity = Vector2.ZERO
+	anim.play(animation_name)
+
 # estados do player
 func idle_state(delta):
 	walk_audio.stop()
@@ -152,12 +169,16 @@ func wall_state(delta):
 		anim.flip_h = true
 		direction = 1
 		if Input.is_action_just_pressed("right"):
+			last_wall_direction = 1
+			wall_jump_timer = WALL_JUMP_TIME
 			go_to_fall_state()
 			return
 	elif right_wall_detector.is_colliding():
 		anim.flip_h = false
 		direction = -1
 		if Input.is_action_just_pressed("left"):
+			last_wall_direction = 1
+			wall_jump_timer = WALL_JUMP_TIME
 			go_to_fall_state()
 			return
 	else:
@@ -179,6 +200,12 @@ func fall_state(delta):
 	move(delta)
 	
 	if Input.is_action_just_pressed("jump") && can_jump():
+		go_to_jump_state()
+		return
+	
+	if Input.is_action_just_pressed("jump") && wall_jump_timer > 0:
+		velocity.x = wall_jump_velocity * last_wall_direction
+		wall_jump_timer = 0
 		go_to_jump_state()
 		return
 	
@@ -256,7 +283,7 @@ func _on_reload_timer_timeout() -> void:
 	global_position = spawn_position
 	velocity = Vector2.ZERO
 	go_to_idle_state()
-	
+
 func enable_double_jump():
 	max_jump_count = 2
 

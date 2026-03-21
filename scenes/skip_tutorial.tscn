@@ -46,7 +46,17 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r7su1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dl3sp"]
+bg_color = Color(0.2627451, 0.2627451, 0.2627451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -77,7 +87,7 @@ theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_nisbi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_njqp3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c00ax")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_r7su1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dl3sp")
 text = "Sim"
 
 [node name="No" type="Button" parent="."]
@@ -91,7 +101,7 @@ theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_nisbi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_njqp3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c00ax")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_r7su1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dl3sp")
 text = "Não"
 
 [node name="Label" type="Label" parent="."]

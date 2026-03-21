@@ -46,7 +46,17 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v86rl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v86rl"]
+bg_color = Color(0.2627451, 0.2627451, 0.2627451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_yqeox")
@@ -59,52 +69,44 @@ offset_bottom = 352.0
 texture = ExtResource("3_mhnvy")
 stretch_mode = 1
 
-[node name="ButtonManager" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ButtonManager" type="VBoxContainer" parent="."]
+offset_left = 225.0
+offset_top = 110.0
+offset_right = 375.0
+offset_bottom = 340.0
+theme_override_constants/separation = 20
 
 [node name="Start" type="Button" parent="ButtonManager"]
-layout_mode = 0
-offset_left = 227.0
-offset_top = 119.0
-offset_right = 377.0
-offset_bottom = 179.0
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("4_mhnvy")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4ytvr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_g3eks")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_v86rl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v86rl")
 text = "Jogar"
 
 [node name="Instructions" type="Button" parent="ButtonManager"]
-layout_mode = 0
-offset_left = 227.0
-offset_top = 194.0
-offset_right = 377.0
-offset_bottom = 254.0
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("4_mhnvy")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4ytvr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_g3eks")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_v86rl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v86rl")
 text = "Instruções"
 
 [node name="Quit" type="Button" parent="ButtonManager"]
-layout_mode = 0
-offset_left = 226.0
-offset_top = 268.0
-offset_right = 376.0
-offset_bottom = 328.0
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("4_mhnvy")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4ytvr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_g3eks")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_v86rl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v86rl")
 text = "Sair"
 
 [node name="Label" type="Label" parent="."]

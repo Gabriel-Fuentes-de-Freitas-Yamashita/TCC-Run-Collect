@@ -162,6 +162,14 @@ next_level = "phase_2"
 position = Vector2(304, 272)
 decoration = true
 
+[node name="Lock" type="Sprite2D" parent="."]
+position = Vector2(39, 82)
+texture = ExtResource("17_fdcgr")
+
+[node name="Lock2" type="Sprite2D" parent="."]
+position = Vector2(566, 82)
+texture = ExtResource("17_fdcgr")
+
 [node name="Player" parent="." instance=ExtResource("8_6ijp4")]
 position = Vector2(304, 274)
 
@@ -207,14 +215,6 @@ texture = ExtResource("14_741v2")
 
 [node name="Coin" parent="." instance=ExtResource("16_syh33")]
 position = Vector2(304, 117)
-
-[node name="Lock" type="Sprite2D" parent="."]
-position = Vector2(39, 82)
-texture = ExtResource("17_fdcgr")
-
-[node name="Lock2" type="Sprite2D" parent="."]
-position = Vector2(566, 82)
-texture = ExtResource("17_fdcgr")
 
 [editable path="moving_platform"]
 [editable path="moving_platform2"]

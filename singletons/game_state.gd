@@ -22,6 +22,7 @@ var total_time: float = 0.0
 var active_timer: bool = false
 var coins := 0
 var gems := 0
+var first_time_playing: bool = true
 
 func _process(delta: float) -> void:
 	if active_timer:

@@ -15,6 +15,7 @@ var door_id: String = "phase_1"
 
 
 func _ready() -> void:
+	GameState.total_time = 0.0
 	GameState.coins = 0
 	gems_container.hide()
 	GameState.active_timer = false
