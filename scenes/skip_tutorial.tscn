@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=3 uid="uid://biwfhrwo4x4l6"]
+
+[ext_resource type="Script" uid="uid://bdisjicgl3cay" path="res://scripts/skip_tutorial.gd" id="1_dl3sp"]
+[ext_resource type="Shader" uid="uid://creejjeo642tp" path="res://scripts/menu.gdshader" id="2_nsywf"]
+[ext_resource type="Texture2D" uid="uid://dmghj83b2ql6n" path="res://sprites/Menu.png" id="3_60vn1"]
+[ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="4_wtxy1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_36qie"]
+shader = ExtResource("2_nsywf")
+shader_parameter/speed = Vector2(0.01, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nisbi"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njqp3"]
+bg_color = Color(0.39688927, 0.39688927, 0.39688924, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c00ax"]
+bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r7su1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dl3sp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_36qie")
+layout_mode = 0
+offset_right = 1000.0
+offset_bottom = 352.0
+texture = ExtResource("3_60vn1")
+stretch_mode = 1
+
+[node name="Yes" type="Button" parent="."]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 163.0
+offset_right = 254.0
+offset_bottom = 213.0
+theme_override_fonts/font = ExtResource("4_wtxy1")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_nisbi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_njqp3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c00ax")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r7su1")
+text = "Sim"
+
+[node name="No" type="Button" parent="."]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 163.0
+offset_right = 451.0
+offset_bottom = 213.0
+theme_override_fonts/font = ExtResource("4_wtxy1")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_nisbi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_njqp3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c00ax")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r7su1")
+text = "Não"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -118.0
+offset_right = 165.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_wtxy1")
+theme_override_font_sizes/font_size = 46
+text = "Jogar o Tutorial?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="No" to="." method="_on_no_pressed"]

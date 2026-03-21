@@ -1,0 +1,232 @@
+[gd_scene load_steps=15 format=3 uid="uid://dt0e3d6ve3hca"]
+
+[ext_resource type="Script" uid="uid://yjkmls28m0it" path="res://scenes/instructions.gd" id="1_i2hxp"]
+[ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="2_i2hxp"]
+[ext_resource type="Shader" uid="uid://creejjeo642tp" path="res://scripts/menu.gdshader" id="2_olnwl"]
+[ext_resource type="Texture2D" uid="uid://6c23m14ybbqe" path="res://sprites/gloves_icon.png" id="3_2n4j6"]
+[ext_resource type="Texture2D" uid="uid://dmghj83b2ql6n" path="res://sprites/Menu.png" id="3_i5xgr"]
+[ext_resource type="Texture2D" uid="uid://ba0skly4gxtne" path="res://sprites/Pontos.png" id="4_c00ax"]
+[ext_resource type="Texture2D" uid="uid://dvob8lwl6ubew" path="res://sprites/gemas/gema1.png" id="4_c6be6"]
+[ext_resource type="Texture2D" uid="uid://dglfw7pfb0qhx" path="res://sprites/boots_icon.png" id="4_olnwl"]
+[ext_resource type="Texture2D" uid="uid://d0pgq5f72vcor" path="res://sprites/moedas/moeda1.png" id="5_i2hxp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jxpsd"]
+shader = ExtResource("2_olnwl")
+shader_parameter/speed = Vector2(0.01, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nisbi"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5890956, 0.58909565, 0.5890954, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njqp3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c00ax"]
+bg_color = Color(0.27752772, 0.27752775, 0.27752757, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r7su1"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Instrucoes" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_i2hxp")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jxpsd")
+layout_mode = 0
+offset_right = 1000.0
+offset_bottom = 352.0
+texture = ExtResource("3_i5xgr")
+stretch_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 15.0
+offset_right = 550.0
+offset_bottom = 337.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nisbi")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_i2hxp")
+theme_override_font_sizes/font_size = 43
+text = "Instruções"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_i2hxp")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=yellow]W[/color], [color=yellow]⬆[/color] ou  [color=yellow]Espaço[/color] - pular"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_i2hxp")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=yellow]D[/color], [color=yellow]⮕[/color] - direita"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_i2hxp")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=yellow]A[/color], [color=yellow]⬅[/color] - esquerda"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_olnwl")
+expand_mode = 2
+
+[node name="Label4" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_i2hxp")
+theme_override_font_sizes/font_size = 20
+text = " - adquirir pulo duplo"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("3_2n4j6")
+expand_mode = 2
+
+[node name="Label5" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_i2hxp")
+theme_override_font_sizes/font_size = 20
+text = " - aquirir o salto na parede"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("4_c6be6")
+expand_mode = 2
+
+[node name="Label5" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_i2hxp")
+theme_override_font_sizes/font_size = 20
+text = " - colete 3 gemas para concluir cada fase"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("5_i2hxp")
+expand_mode = 2
+
+[node name="Label5" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_i2hxp")
+theme_override_font_sizes/font_size = 20
+text = " - as moedas aumentam a sua pontuação final"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 403.0
+offset_top = 90.0
+offset_right = 513.32654
+offset_bottom = 111.0
+texture = ExtResource("4_c00ax")
+expand_mode = 3
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 1
+offset_left = 324.0
+offset_top = 117.0
+offset_right = 584.0
+offset_bottom = 213.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_i2hxp")
+theme_override_font_sizes/font_size = 16
+text = " Pontuação inical = 10.000
+ +1 seg = -20 pontos
+ +1 moeda = +100 pontos"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 22.0
+offset_right = 186.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("2_i2hxp")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_njqp3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c00ax")
+theme_override_styles/focus = SubResource("StyleBoxFlat_r7su1")
+text = "Voltar ao Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

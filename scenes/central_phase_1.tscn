@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://ch551uwyq6u65"]
+[gd_scene load_steps=33 format=4 uid="uid://ch551uwyq6u65"]
 
 [ext_resource type="Script" uid="uid://b2dkxp21xykth" path="res://scripts/central_phase_1.gd" id="1_e8yyu"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="2_0u3p6"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://doq4ejmjtwbnj" path="res://sprites/placas_sem_simb/placas_sem_simb/004_phase_red.png" id="14_4nr0r"]
 [ext_resource type="PackedScene" uid="uid://b0gfu5illccey" path="res://interactive_objects/coin.tscn" id="15_ciumq"]
 [ext_resource type="FontFile" uid="uid://dslem6tf35irx" path="res://sprites/VT323-Regular.ttf" id="17_p5150"]
+[ext_resource type="Texture2D" uid="uid://bnit73tj5bhin" path="res://sprites/cadeado.png" id="18_pmvtm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_50qlx"]
 atlas = ExtResource("10_a6nb1")
@@ -221,6 +222,18 @@ theme_override_fonts/font = ExtResource("17_p5150")
 text = "Entre nas portas verdes
 para prosseguir"
 horizontal_alignment = 1
+
+[node name="Lock" type="Sprite2D" parent="."]
+position = Vector2(39, 226)
+texture = ExtResource("18_pmvtm")
+
+[node name="Lock2" type="Sprite2D" parent="."]
+position = Vector2(39, 82)
+texture = ExtResource("18_pmvtm")
+
+[node name="Lock3" type="Sprite2D" parent="."]
+position = Vector2(566, 82)
+texture = ExtResource("18_pmvtm")
 
 [editable path="moving_platform"]
 [editable path="moving_platform2"]

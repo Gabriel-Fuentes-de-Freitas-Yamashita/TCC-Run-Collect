@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://yy6kmtvu86hn"]
+[gd_scene load_steps=31 format=4 uid="uid://yy6kmtvu86hn"]
 
 [ext_resource type="Script" uid="uid://crgevrdj2u2us" path="res://scripts/central_phase_2.gd" id="1_cv5st"]
 [ext_resource type="PackedScene" uid="uid://p3yv32j15wku" path="res://entities/camera.tscn" id="2_syh33"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://doq4ejmjtwbnj" path="res://sprites/placas_sem_simb/placas_sem_simb/004_phase_red.png" id="14_741v2"]
 [ext_resource type="PackedScene" uid="uid://bhlvxjp8oeesk" path="res://singletons/labels.tscn" id="15_cv5st"]
 [ext_resource type="PackedScene" uid="uid://b0gfu5illccey" path="res://interactive_objects/coin.tscn" id="16_syh33"]
+[ext_resource type="Texture2D" uid="uid://bnit73tj5bhin" path="res://sprites/cadeado.png" id="17_fdcgr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ijpo"]
 atlas = ExtResource("12_fdcgr")
@@ -206,6 +207,14 @@ texture = ExtResource("14_741v2")
 
 [node name="Coin" parent="." instance=ExtResource("16_syh33")]
 position = Vector2(304, 117)
+
+[node name="Lock" type="Sprite2D" parent="."]
+position = Vector2(39, 82)
+texture = ExtResource("17_fdcgr")
+
+[node name="Lock2" type="Sprite2D" parent="."]
+position = Vector2(566, 82)
+texture = ExtResource("17_fdcgr")
 
 [editable path="moving_platform"]
 [editable path="moving_platform2"]

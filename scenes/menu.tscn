@@ -67,10 +67,10 @@ offset_bottom = 40.0
 
 [node name="Start" type="Button" parent="ButtonManager"]
 layout_mode = 0
-offset_left = 225.0
-offset_top = 143.0
-offset_right = 375.0
-offset_bottom = 203.0
+offset_left = 227.0
+offset_top = 119.0
+offset_right = 377.0
+offset_bottom = 179.0
 theme_override_fonts/font = ExtResource("4_mhnvy")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
@@ -79,12 +79,26 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_g3eks")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_v86rl")
 text = "Jogar"
 
+[node name="Instructions" type="Button" parent="ButtonManager"]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 194.0
+offset_right = 377.0
+offset_bottom = 254.0
+theme_override_fonts/font = ExtResource("4_mhnvy")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ytvr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g3eks")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v86rl")
+text = "Instruções"
+
 [node name="Quit" type="Button" parent="ButtonManager"]
 layout_mode = 0
-offset_left = 225.0
-offset_top = 233.0
-offset_right = 375.0
-offset_bottom = 293.0
+offset_left = 226.0
+offset_top = 268.0
+offset_right = 376.0
+offset_bottom = 328.0
 theme_override_fonts/font = ExtResource("4_mhnvy")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
@@ -107,4 +121,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonManager/Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]
